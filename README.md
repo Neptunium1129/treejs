@@ -1,4 +1,4 @@
-# @widgetjs/tree
+# @widgetjs/tree Fork Version
 
 [![NPM version](https://img.shields.io/npm/v/@widgetjs/tree.svg?style=flat-square)](https://npmjs.org/package/@widgetjs/tree)
 [![David deps](https://img.shields.io/david/daweilv/treejs.svg?style=flat-square)](https://david-dm.org/daweilv/treejs)
@@ -23,22 +23,17 @@ A lightweight flexible tree widget.
 ## Install
 
 ```bash
-npm i -S @widgetjs/tree
+ npm i @neptunium/tree
 ```
 
 ## Usage
 
-### React/Vue usage
+### Svelte usage
 
 ```js
-import Tree from '@widgetjs/tree';
+import Tree from '@neptunium/tree';
 ```
 
-### VanillaJS usage
-
-```html
-<script src="path/to/tree.min.js"></script>
-```
 
 ## Initialize
 
@@ -70,9 +65,21 @@ import Tree from '@widgetjs/tree';
 ### Example
 
 ```js
-const myTree = new Tree('#container', {
-  url: '/api/treeJson',
-});
+myTree = new Tree('#container', {
+            data: treeData,
+            onChange: function() {
+                console.log(this.values);
+                console.log(this.nodesById);
+                console.log(this.onNodeSelect);
+                console.log(myTree.selectedNodes);
+            },
+            onNodeSelect: function(e) { //click node
+                console.log(e);
+            },
+```
+
+```html
+<div id="container"></div>
 ```
 
 ## Parameters
